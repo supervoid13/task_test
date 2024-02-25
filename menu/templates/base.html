@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Menus{% endblock %}</title>
+</head>
+<body>
+    <a href="{% url 'main' %}">Main</a>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

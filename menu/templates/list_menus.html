@@ -1,0 +1,21 @@
+{% load index %}
+{% if level.level < max_level %}
+    <ul>
+    {% for item in items %}
+        <li>
+            {% if item.item_set.all %}
+                <a href="/menus/{{ item.url }}">{{ item.title }}</a>
+            {% else %}
+                {{ item.title }}
+            {% endif %}
+            {% if item.title == tree|index:level.level %}
+                {% if item.item_set.all %}
+                    {{ level.increment }}
+                    <ul>{% include 'list_menus.html' with items=item.item_set.all %}</ul>
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endfor %}
+        <br>
+    </ul>
+{% endif %}
